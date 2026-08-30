@@ -1,0 +1,22 @@
+{
+  "name": "@quitegoodproject/landscope-sdk",
+  "version": "1.0.0",
+  "description": "Drop-in Spatial Property HUD Widget & Client SDK for LandScope OS.",
+  "main": "dist/index.js",
+  "type": "module",
+  "keywords": [
+    "landscope",
+    "postgis",
+    "property-intelligence",
+    "solar-feasibility",
+    "zoning-api",
+    "quitegoodproject"
+  ],
+  "author": "The Quite Good Project <engineering@quitegoodproject.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/quitegoodproject/landscope"
+  },
+  "homepage": "https://landscopeapi.com"
+}
