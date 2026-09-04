@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json.schemastore.org/mcp.json",
+  "name": "@quitegoodproject/landscope-sdk",
+  "version": "1.0.0",
+  "description": "High-performance PostGIS spatial parcel boundary, deed owner verification, zoning compliance, and solar roof feasibility engine.",
+  "author": "The Quite Good Project <engineering@quitegoodproject.com>",
+  "homepage": "https://landscopeapi.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/quitegoodproject/landscope.git"
+  },
+  "runtime": "node",
+  "entrypoint": "dist/mcp/server.js",
+  "tools": [
+    {
+      "name": "get_parcel_boundaries",
+      "description": "Fetch spatial parcel boundaries, APN, lot size, zoning code, and assessed value for any US address.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "address": { "type": "string", "description": "Street address (e.g. '4812 E 7th St, Austin, TX 78702')" }
+        },
+        "required": ["address"]
+      }
+    },
+    {
+      "name": "verify_deed_owner",
+      "description": "Verify whether an applicant is the legal deeded owner using Jaro-Winkler string distance.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "address": { "type": "string", "description": "Street address" },
+          "applicant_name": { "type": "string", "description": "Full legal name of the applicant" }
+        },
+        "required": ["address", "applicant_name"]
+      }
+    },
+    {
+      "name": "calculate_solar_feasibility",
+      "description": "Calculate usable roof area, fire code setbacks, recommended system size in kW, and annual kWh generation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "address": { "type": "string", "description": "Street address" }
+        },
+        "required": ["address"]
+      }
+    },
+    {
+      "name": "calculate_buildable_envelope",
+      "description": "Calculate parametric 2D buildable footprint, setbacks, and FAR headroom under municipal zoning codes.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "address": { "type": "string", "description": "Street address" }
+        },
+        "required": ["address"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+# Smithery.ai Configuration for LandScope
+name: landscope-mcp
+displayName: LandScope
+description: High-performance PostGIS spatial parcel boundary, deed owner verification, zoning compliance, and solar roof feasibility engine.
+version: 1.0.0
+homepage: https://landscopeapi.com
+repository: https://github.com/quitegoodproject/landscope
+license: MIT
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties:
+      apiKey:
+        type: string
+        description: LandScope API Key (optional for free tier)
+  commandFunction:
+    name: npx
+    args:
+      - -y
+      - "@quitegoodproject/landscope-sdk"
